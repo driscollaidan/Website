@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name ="viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=no"> 
+
+        <title>Your Generated Graph</title>
+    </head>
+    <body>
+        <center>
+        <div class="container mt-3">
+            {% if chart %}
+                <img src="data:image/png;base64, {{chart|safe}}">
+            {% endif %}
+        </div>
+        <h3>Create Another Graph</h3>
+            <h4>Select the information desired before submitting the form to display a new graph </h4>
+
+            <form action="/graphing/" method="POST">
+                {% csrf_token %}
+                <label for="first_county">Select the First County:</label>
+                <select name="first_county" id="first_county">
+                    <option value="C">Carson</option>
+                    <option value="F">Fort Yates</option>
+                    <option value="L">Linton</option>
+                </select>
+                <br><br>
+                <label for="data1">Select Data Set for First County:</label>
+                <select name="data1" id="data1">
+                    <option value="BS">Average Bare Soil Temperature</option>
+                    <option value="DP">Average Dew Point</option>
+                    <option value="PENPET">Average Penman PET</option>
+                    <option value="TSP">Average Turf Soil Temperature</option>
+                    <option value="WC">Average Wind Chill</option>
+                    <option value="WS">Average Wind Speed</option>
+                    <option value="AT">Average Temperature</option>
+                    <option value="MWS">Max Wind Speed</option>
+                    <option value="MaxT">Maximum Temperature</option>
+                    <option value="MinT">Minimum Temperature</option>
+                    <option value="TPP">Total Penman PET</option>
+                    <option value="TSR">Total Solar Radiation</option>
+                </select>
+                <br><br>
+                <label for="second_county">Select the Second County:</label>
+                <select name="second_county" id="second_county">
+                    <option value="N">None</option>
+                    <option value="C">Carson</option>
+                    <option value="F">Fort Yates</option>
+                    <option value="L">Linton</option>
+                </select>
+                <p>If you want to compare two data points from the same county, reselect the same county from the previous drop down.</p>
+                <label for="data2">Select Data Set for Second County:</label>
+                <select name="data2" id="data2">
+                    <option value="N">None</option>
+                    <option value="BS">Average Bare Soil Temperature</option>
+                    <option value="DP">Average Dew Point</option>
+                    <option value="PENPET">Average Penman PET</option>
+                    <option value="TSP">Average Turf Soil Temperature</option>
+                    <option value="WC">Average Wind Chill</option>
+                    <option value="WS">Average Wind Speed</option>
+                    <option value="AT">Average Temperature</option>
+                    <option value="MWS">Max Wind Speed</option>
+                    <option value="MaxT">Maximum Temperature</option>
+                    <option value="MinT">Minimum Temperature</option>
+                    <option value="TPP">Total Penman PET</option>
+                    <option value="TSR">Total Solar Radiation</option>
+                </select>
+                <p>If you're only graphing one line select "None". If you want the same data point from the previous drop down, reselect it here</p>
+                <input type="submit" value="Submit">
+            </form>
+        </center>
+    </body>
+</html>
