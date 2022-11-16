@@ -1,0 +1,1 @@
+{"C BS N N": 5, "C PENPET F PENPET": 2, "C MinT N N": 4, "F AT N N": 3, "F MWS N N": 5, "F MaxT F MinT": 2, "L DP N N": 1, "L DP L TSP": 1, "L TSR N N": 1}
